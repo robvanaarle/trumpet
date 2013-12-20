@@ -1,0 +1,6 @@
+#!/bin/sh
+
+eval $(env | grep "^SYNOPKG_PKGDEST=")
+ret=`ln -s "${SYNOPKG_PKGDEST}/trumpet" /usr/syno/synoman/webman/3rdparty/trumpet`
+ret=`chown -R admin.users $SYNOPKG_PKGDEST`
+exit 0 

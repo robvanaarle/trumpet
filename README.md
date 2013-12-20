@@ -1,4 +1,4 @@
 trumpet
 =======
 
-Package for Synology DSM to wake up any device in your network
+Package for Synology DSM to wake up any device in your network using Wake-on-LAN.

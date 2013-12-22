@@ -1,0 +1,27 @@
+<h3>Devices</h3>
+
+<a href="<?php echo $this->url(array('action' => 'create'))?>">create</a>
+<br />
+
+<table>
+  <tr>
+    <th>Label</th>
+    <th>Mac</th>
+    <th>IP</th>
+    <th>Port</th>
+    <th></th>
+  </tr>
+  <?php foreach ($this->devices as $device): ?>
+  <tr>
+    <td><?php echo $this->escape($device['label']) ?></td>
+    <td><?php echo $this->escape($device['mac']) ?></td>
+    <td><?php echo $this->escape($device['ip']) ?></td>
+    <td><?php echo $this->escape($device['port']) ?></td>
+    <td>
+      <a href="<?php echo $this->url(array('action' => 'wake', 'id' => $device['id']))?>">wake</a> |
+      <a href="<?php echo $this->url(array('action' => 'update', 'id' => $device['id']))?>">update</a> |
+      <a href="<?php echo $this->url(array('action' => 'delete', 'id' => $device['id']))?>">delete</a>
+    </td>
+  </tr>
+  <?php endforeach; ?>
+</table>

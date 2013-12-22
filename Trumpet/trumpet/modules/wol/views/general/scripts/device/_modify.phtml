@@ -1,0 +1,45 @@
+<h3>Device <?php echo $this->action?></h3>
+
+<form method="post" action="<?php echo $this->url(array('action' => $this->action))?>">
+  
+  <input type="hidden" name="id" value="<?php echo $this->id ?>" />
+  
+  <dl>
+    <dt><label for="label">Label</label></dt>
+    <dd>
+      <?php echo $this->error($this->form, 'label')?>
+      <input type="text" name="form[label]" id="label" value="<?php echo $this->escape($this->form['label'])?>" />
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><label for="mac">Mac</label></dt>
+    <dd>
+      <?php echo $this->error($this->form, 'mac')?>
+      <input type="text" name="form[mac]" id="mac" value="<?php echo $this->escape($this->form['mac'])?>" />
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><label for="ip">Ip</label></dt>
+    <dd>
+      <?php echo $this->error($this->form, 'ip')?>
+      <input type="text" name="form[ip]" id="ip" value="<?php echo $this->escape($this->form['ip'])?>" />
+    </dd>
+  </dl>
+  
+  <dl>
+    <dt><label for="port">Port</label></dt>
+    <dd>
+      <?php echo $this->error($this->form, 'port')?>
+      <input type="text" name="form[port]" id="port" value="<?php echo $this->escape($this->form['port'])?>" />
+    </dd>
+  </dl>
+  
+  <dl>
+    <dd>
+      <input type="submit" value="<?php echo $this->action?>" />
+      <a href="<?php echo $this->url(array('action' => 'index'))?>">cancel</a>
+    </dd>
+  </dl>
+</form>

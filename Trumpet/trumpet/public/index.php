@@ -1,7 +1,4 @@
-#!/usr/bin/php -d open_basedir="/"
 <?php
-
-//echo "Content-type: text/html\r\n\r\n";
 
 // error settings
 error_reporting(E_ALL);

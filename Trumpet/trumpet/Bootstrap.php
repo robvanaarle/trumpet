@@ -15,9 +15,9 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
     $this->application->addPlugin($errorHandler);
      
     // add sqlite connection
-    //$uormPlugin = new \ultimo\orm\mvc\plugins\OrmManagers();
-    //$uormPlugin->addConnection('master', 'sqlite://' . __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'dbtest');
-    //$this->application->addPlugin($uormPlugin, 'uorm');
+    $uormPlugin = new \ultimo\orm\mvc\plugins\OrmManagers();
+    $uormPlugin->addConnection('master', 'sqlite://' . __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->application->getEnvironment() . DIRECTORY_SEPARATOR . 'db.sqlite');
+    $this->application->addPlugin($uormPlugin, 'uorm');
     
     // FileTranslator
     $translator = new \ultimo\translate\mvc\plugins\FileTranslator($this->application, 'en');
@@ -42,11 +42,24 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
   public function initRoutes() {
     $router = $this->application->getRouter();
     
-    $router->addRule('default', new \ultimo\mvc\routers\rules\StaticRule('index.cgi', array(
-        'module' => 'general',
-        'controller' => 'index',
-        'action' => 'index'
-    )));
+
+    $router->addRule('default', new \ultimo\mvc\routers\rules\RegexRule(
+        'index\.cgi',
+        'index.cgi',
+          array(
+          'module' => 'general',
+          'controller' => 'index',
+          'action' => 'index'
+          ),
+          array(
+          )
+    ));
+    
+//    $router->addRule('default', new \ultimo\mvc\routers\rules\StaticRule('index.cgi', array(
+//        'module' => 'general',
+//        'controller' => 'index',
+//        'action' => 'index'
+//    )));
   }
   
   

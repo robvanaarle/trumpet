@@ -1,0 +1,11 @@
+<h3>Wake</h3>
+
+<?php if ($this->exception === null): ?>
+  Succesfully sent wake up packet to '<?php echo $this->device['label'] ?>'.
+<?php else: ?>
+  Error while sending wake up packet to '<?php echo $this->device['label'] ?>': <br />
+    <?php echo $this->exception->getMessage() ?>
+<?php endif; ?>
+  
+<br /><br />
+<a href="<?php echo $this->url(array('action' => 'index'))?>">index</a>

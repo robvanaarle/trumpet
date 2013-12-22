@@ -6,7 +6,7 @@ cd ./Trumpet
 
 # Create a package.tgz from the source files
 # -prevent including of ./trumpet/public/synoman in ./package.tgz (These files are on the NAS)
-tar -cvzf ./package.tgz --exclude='./trumpet/public/synoman' --exclude='./trumpet/temp/session/?*' --exclude='.DS_Store' --exclude='.git' ./trumpet
+tar -cvzf ./package.tgz --exclude='./trumpet/public/synoman' --exclude='./trumpet/temp/session/?*' --exclude='.DS_Store' --exclude='.git' --exclude='./trumpet/data/development' ./trumpet
 
 # Create the spk
 # -prevent including of ./trumpet in Trumpet (./package.tgz contains these files)

@@ -1,5 +1,7 @@
 <?php
 
+//echo "Content-type: text/html\r\n\r\n";
+
 // error settings
 error_reporting(E_ALL);
 ini_set('display_errors', '0'); // ErrorPrinter is used

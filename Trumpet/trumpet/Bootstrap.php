@@ -7,7 +7,7 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
     
     $this->application->addModulesDir($this->application->getApplicationDir() . '/library/modules');
     
-    $this->application->getPlugin('viewRenderer')->setTheme('ext3');
+    $this->application->getPlugin('viewRenderer')->setTheme('ext34');
     
     // ErrorHandler
     $errorHandler = new \ultimo\mvc\plugins\ErrorHandler();
@@ -42,13 +42,14 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
   public function initRoutes() {
     $router = $this->application->getRouter();
     
-    $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.cgi', array(
+    $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.php', array(
         'module' => 'general',
         'controller' => 'index',
         'action' => 'index'
     )));
   }
   
+  public function onPluginAdded(\ultimo\mvc\Application $application) { }
   
   public function onModuleCreated(\ultimo\mvc\Module $module) { }
   

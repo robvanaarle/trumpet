@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <?php $this->headTitle('Trumpet') ?>
+
+    <?php $this->synoman()->prependJavascriptFile('/scripts/ext-3.4/ext-all.js') ?>
+    <?php $this->synoman()->prependJavascriptFile('/scripts/ext-3.4/adapter/ext/ext-base.js') ?>
+    <?php $this->synoman()->prependStylesheet('/webman/resources/css/desktop.css') ?>
+    <?php $this->synoman()->prependStylesheet('/scripts/ext-3.4/ux/ux-all.css') ?>
+    <?php $this->synoman()->prependStylesheet('/scripts/ext-3.4/resources/css/xtheme-gray.css') ?>
+    <?php $this->synoman()->prependStylesheet('/scripts/ext-3.4/resources/css/ext-all.css') ?>
+    
+    <?php $this->headMeta()->append(array('http-equiv' => 'Content-Type', 'content' => 'text/html; charset=iso-8859-1')) ?>
+    <?php echo $this->headTitle() ?>
+    <?php echo $this->headMeta() ?>
+    <?php echo $this->headLink() ?>
+    <?php echo $this->headStyle() ?>
+    <?php echo $this->headScript() ?>
+
+  </head>
+  <body>
+    <?php echo $this->content ?>
+  </body>
+</html>

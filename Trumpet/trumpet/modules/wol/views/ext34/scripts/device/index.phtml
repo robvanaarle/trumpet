@@ -1,0 +1,19 @@
+<?php
+  $data = array();
+ 
+  $fields = array('id', 'label', 'mac', 'ip', 'port');
+  foreach ($this->devices as $device) {
+    $record = array();
+    foreach ($fields as $field) {
+      $record[] = $device->$field;
+    }
+    $data[] = $record;
+  }
+
+?>
+
+<?php $this->headScript()->captureJavascriptStart() ?>
+var deviceData = <?php echo json_encode($data)?>;
+<?php $this->headScript()->captureJavascriptEnd() ?>
+
+<?php $this->headScript()->appendJavascriptFile('ext34/device/index.js') ?>

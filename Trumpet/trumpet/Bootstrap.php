@@ -42,7 +42,7 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
   public function initRoutes() {
     $router = $this->application->getRouter();
     
-    $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.php', array(
+    $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.cgi', array(
         'module' => 'general',
         'controller' => 'index',
         'action' => 'index'

@@ -5,8 +5,6 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
     // router
     $this->initRoutes();
     
-    $this->application->addModulesDir($this->application->getApplicationDir() . '/library/modules');
-    
     $this->application->getPlugin('viewRenderer')->setTheme('ext34');
     
     // ErrorHandler
@@ -16,7 +14,7 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
      
     // add sqlite connection
     $uormPlugin = new \ultimo\orm\mvc\plugins\OrmManagers();
-    $uormPlugin->addConnection('master', 'sqlite://' . __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->application->getEnvironment() . DIRECTORY_SEPARATOR . 'db.sqlite');
+    $uormPlugin->addConnection('master', 'sqlite:' . __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . $this->application->getEnvironment() . DIRECTORY_SEPARATOR . 'db.sqlite');
     $this->application->addPlugin($uormPlugin, 'uorm');
     
     // FileTranslator

@@ -1,0 +1,6 @@
+[Sun Aug 17 11:41:45 2014] [error] [client 127.0.0.1] File does not exist: D:/Development/Php/trumpet/Trumpet/trumpet/public/favicon.ico
+[Sun Aug 17 11:41:45 2014] [error] [client 127.0.0.1] File does not exist: D:/Development/Php/trumpet/Trumpet/trumpet/public/favicon.ico
+[Sun Aug 17 11:41:45 2014] [error] [client 127.0.0.1] File does not exist: D:/Development/Php/trumpet/Trumpet/trumpet/public/favicon.ico
+[Sun Aug 17 11:46:20 2014] [error] [client 127.0.0.1] (20023)The given path was above the root path: Cannot map GET /%5C/index.php?module=wol&controller=device HTTP/1.1 to file, referer: http://trumpet.lan/index.php?module=general&controller=index&action=index
+[Sun Aug 17 12:03:27 2014] [error] [client 127.0.0.1] script 'D:/Development/Php/trumpet/Trumpet/trumpet/public/save-form.php' not found or unable to stat, referer: http://trumpet.lan/index.php?module=wol&controller=device
+[Sun Aug 17 12:28:17 2014] [error] [client 127.0.0.1] (20023)The given path was above the root path: Cannot map GET /%5C/index.php?module=wol&controller=device HTTP/1.1 to file, referer: http://trumpet.lan/index.php

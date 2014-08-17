@@ -5,7 +5,7 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
     // router
     $this->initRoutes();
     
-    $this->application->getPlugin('viewRenderer')->setTheme('ext34');
+    $this->application->getPlugin('viewRenderer')->setTheme('general'); // ext34
     
     // ErrorHandler
     $errorHandler = new \ultimo\mvc\plugins\ErrorHandler();
@@ -40,7 +40,22 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
   public function initRoutes() {
     $router = $this->application->getRouter();
     
-    $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.cgi', array(
+    // add default routing rule based on environment
+    if ($this->application->getEnvironment() == 'development') {
+      $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.php', array(
+          'module' => 'general',
+          'controller' => 'index',
+          'action' => 'index'
+      )));
+    } else {
+      $router->addRule('default', new \ultimo\mvc\routers\rules\BasicQueryStringRule('index.cgi', array(
+          'module' => 'general',
+          'controller' => 'index',
+          'action' => 'index'
+      )));
+    }
+    
+    $router->addRule('home', new \ultimo\mvc\routers\rules\BasicQueryStringRule('', array(
         'module' => 'general',
         'controller' => 'index',
         'action' => 'index'
@@ -52,8 +67,12 @@ class Bootstrap extends \ultimo\mvc\Bootstrap implements \ultimo\mvc\plugins\App
   public function onModuleCreated(\ultimo\mvc\Module $module) { }
   
   public function onRoute(\ultimo\mvc\Application $application, \ultimo\mvc\Request $request) {
-    // only index.cgi will be called, so use that dirname as base path
-    $request->setBasePath(dirname($request->getUri(false)));
+    // only index.cgi/index.php will be called, so use the url directory to that file as base path
+    $basePath = dirname($request->getUri(false));
+    if ($basePath == '/' || $basePath == '\\') {
+      $basePath = '';
+    }
+    $request->setBasePath($basePath);
   }
   
   public function onRouted(\ultimo\mvc\Application $application, \ultimo\mvc\Request $request=null) { }

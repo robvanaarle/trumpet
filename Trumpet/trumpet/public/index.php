@@ -1,6 +1,5 @@
 <?php
 require '../vendor/autoload.php';
-//echo "Content-type: text/html\r\n\r\n";
 
 // error settings
 error_reporting(-1);
